@@ -1,3 +1,8 @@
+# Project 2 - 基本影像處理功能-線性內插/黑白化/Average Filter
+
+## Code 
+
+```cpp
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
@@ -26,9 +31,9 @@ int main() {
         for (int j = 0; j < image.cols; j++) {
             for (int k = 0; k < 3; k++) {
                 for (int m = 0; m < 3; m++) {
-                    nearestNeighbor.at<Vec3b>((i * 3 + k), (j * 3 + m))[0] = image.at<Vec3b>(i, j)[0];
-                    nearestNeighbor.at<Vec3b>((i * 3 + k), (j * 3 + m))[1] = image.at<Vec3b>(i, j)[1];
-                    nearestNeighbor.at<Vec3b>((i * 3 + k), (j * 3 + m))[2] = image.at<Vec3b>(i, j)[2];
+                    nearestNeighbor.at<Vec3b>((i*3 + k), (j*3 + m))[0] = image.at<Vec3b>(i, j)[0];
+                    nearestNeighbor.at<Vec3b>((i*3 + k), (j*3 + m))[1] = image.at<Vec3b>(i, j)[1];
+                    nearestNeighbor.at<Vec3b>((i*3 + k), (j*3 + m))[2] = image.at<Vec3b>(i, j)[2];
                 }
             }
         }
@@ -57,10 +62,10 @@ int main() {
     // do linear interpolation
     for (double i = 0; i < linearInterpolation.rows; i++) {
         for (double j = 0; j < linearInterpolation.cols; j++) {
-            linearInterpolation.at<Vec3b>(i, j) = ((tmp1.at<Vec3b>(ceil(i / 3), ceil(j / 3)) - tmp1.at<Vec3b>(floor(i / 3), floor(j / 3)))
-                * sqrt(pow(i / 3 - floor(i / 3), 2) + pow(j / 3 - floor(j / 3), 2))
-                / sqrt(pow(ceil(i / 3) - floor(i / 3), 2) + pow(ceil(j / 3) - floor(j / 3), 2)))
-                + tmp1.at<Vec3b>(floor(i / 3), floor(j / 3));
+            linearInterpolation.at<Vec3b>(i, j) = ((tmp1.at<Vec3b>(ceil(i / 3), ceil(j / 3)) - tmp1.at<Vec3b>(floor(i / 3), floor(j / 3))) 
+                                                  * sqrt(pow(i / 3 - floor(i / 3), 2) + pow(j / 3 - floor(j / 3), 2)) 
+                                                  / sqrt(pow(ceil(i / 3) - floor(i / 3), 2) + pow(ceil(j / 3) - floor(j / 3), 2))) 
+                                                  + tmp1.at<Vec3b>(floor(i / 3), floor(j / 3));
         }
     }
     imwrite("linearInterpolation.jpg", linearInterpolation);
@@ -118,29 +123,59 @@ int main() {
             else {
                 addSignature.at<uchar>(i, j) = averageFilter.at<uchar>(i, j);;
             }
-
+            
         }
     }
     imwrite("add my signature.jpg", addSignature);
 
 
-    // output
+     // output
     namedWindow("Original window", WINDOW_AUTOSIZE);
     imshow("Original window", image);
     namedWindow("Original signature window", WINDOW_AUTOSIZE);
     imshow("Original signature window", signature);
     namedWindow("Nearest Neighbor output window", WINDOW_AUTOSIZE);
     imshow("Nearest Neighbor output window", nearestNeighbor);
-    namedWindow("Linear Interpolation output window", WINDOW_AUTOSIZE);
+    namedWindow("Linear Interpolation output window", WINDOW_AUTOSIZE); 
     imshow("Linear Interpolation output window", linearInterpolation);
     namedWindow("Gray Image output window", WINDOW_AUTOSIZE);
     imshow("Gray Image output window", gray);
     namedWindow("Average Filter output window", WINDOW_AUTOSIZE);
     imshow("Average Filter output window", averageFilter);
-    namedWindow("Add Signature output window", WINDOW_AUTOSIZE);
+    namedWindow("Add Signature output window", WINDOW_AUTOSIZE);     
     imshow("Add Signature output window", addSignature);
 
-    waitKey(0);
-    destroyAllWindows();
+    waitKey(0); 
+    destroyAllWindows(); 
     return 0;
 }
+
+```
+
+
+
+## Result
+
+* 原始圖檔
+![](x64/Debug/me.png)
+
+* 原始簽名圖檔
+![](x64/Debug/signature.png)
+
+* 經nearest neighbor放大三倍後結果
+![](x64/Debug/nearestNeighbor.jpg)
+
+* 經linear interpolation放大三倍後結果
+![](x64/Debug/linearInterpolation.jpg)
+
+* 轉黑白後結果
+![](x64/Debug/gray.jpg)
+
+* 經average filter後結果
+![](x64/Debug/average filter.jpg)
+
+* 加上簽名後結果
+![](x64/Debug/add my signature.jpg)
+
+## Reflection
+
