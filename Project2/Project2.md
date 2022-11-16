@@ -1,4 +1,4 @@
-# Project 2 - °ò¥»¼v¹³³B²z¥\¯à-½u©Ê¤º´¡/¶Â¥Õ¤Æ/Average Filter
+# Project 2 - ï¿½ò¥»¼vï¿½ï¿½ï¿½Bï¿½zï¿½\ï¿½ï¿½-ï¿½uï¿½Ê¤ï¿½ï¿½ï¿½/ï¿½Â¥Õ¤ï¿½/Average Filter
 
 ## Code 
 
@@ -155,27 +155,33 @@ int main() {
 
 
 ## Result
+* åŸå§‹åœ–æª”
 
-* ­ì©l¹ÏÀÉ
 ![](x64/Debug/me.png)
 
-* ­ì©lÃ±¦W¹ÏÀÉ
+* åŸå§‹ç°½ååœ–æª”
+
 ![](x64/Debug/signature.png)
 
-* ¸gnearest neighbor©ñ¤j¤T­¿«áµ²ªG
+* ç¶“nearest neighboræ”¾å¤§ä¸‰å€å¾Œçµæœ
+
 ![](x64/Debug/nearestNeighbor.jpg)
 
-* ¸glinear interpolation©ñ¤j¤T­¿«áµ²ªG
+* ç¶“linear interpolationæ”¾å¤§ä¸‰å€å¾Œçµæœ
+
 ![](x64/Debug/linearInterpolation.jpg)
 
-* Âà¶Â¥Õ«áµ²ªG
+* è½‰é»‘ç™½å¾Œçµæœ
+
 ![](x64/Debug/gray.jpg)
 
-* ¸gaverage filter«áµ²ªG
-![](x64/Debug/average filter.jpg)
+* ç¶“average filterå¾Œçµæœ
 
-* ¥[¤WÃ±¦W«áµ²ªG
-![](x64/Debug/add my signature.jpg)
+![Alt text](x64/Debug/average%20filter.jpg)
+
+* åŠ ä¸Šç°½åå¾Œçµæœ
+
+![Alt text](x64/Debug/add%20my%20signature.jpg)
 
 ## Reflection
 
