@@ -1,4 +1,4 @@
-# Project 2 - �򥻼v���B�z�\��-�u�ʤ���/�¥դ�/Average Filter
+# Project 2 - 基本影像處理功能-線性內插/黑白化/Average Filter
 
 ## Code 
 
