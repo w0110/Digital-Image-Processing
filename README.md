@@ -17,3 +17,7 @@
 [基本影像處理功能-線性內插/黑白化/Average Filter - code](https://github.com/w0110/Digital-Image-Processing/blob/master/Project2/Project2/Source.cpp)
 
 ## Project 3
+
+[Histogram & Histogram Equalization - doc](https://github.com/w0110/Digital-Image-Processing/blob/master/Project3/Project3.md)
+
+[Histogram & Histogram Equalization - code](https://github.com/w0110/Digital-Image-Processing/blob/master/Project3/Project3/Source.cpp)

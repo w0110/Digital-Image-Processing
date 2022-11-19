@@ -1,7 +1,7 @@
 ﻿#include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
-#include<opencv2/opencv.hpp>
+#include <opencv2/opencv.hpp>
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
@@ -14,7 +14,6 @@ int main() {
     Mat his = Mat::zeros(512, 512, CV_8UC1);
     Mat mCumu = Mat::zeros(512, 512, CV_8UC1);
     Mat after = Mat::zeros(512, 512, CV_8UC1);
-
     int total = 0;
 
     /* !!!!! GRAY ONE !!!!!*/
@@ -78,9 +77,6 @@ int main() {
         return -1;
     }
 
-    namedWindow("Original color window", WINDOW_AUTOSIZE);
-    imshow("Original color window", cImage);
-
     // count histogram
     int cCount[3][256] = { 0 };
 
@@ -125,13 +121,6 @@ int main() {
         line(redHis, Point(i * 2 + 1, 513), Point(i * 2 + 1, 513 - cCount[2][i] * 0.01), Scalar(255, 255, 255), 1, LINE_4);
     }
 
-    namedWindow("red count", WINDOW_AUTOSIZE);
-    imshow("red count", redHis);
-    namedWindow("green count", WINDOW_AUTOSIZE);
-    imshow("green count", greenHis);
-    namedWindow("blue count", WINDOW_AUTOSIZE);
-    imshow("blue count", blueHis);
-
     // do Histogram Equalization
     for (int i = 0; i < 256; i++) {
         double r = cCumu[2][i] * 256 / red;
@@ -145,13 +134,6 @@ int main() {
         line(blueAfter, Point(b * 2 + 1, 513), Point(b * 2 + 1, 513 - cCount[0][i] * 0.01), Scalar(255, 255, 255), 1, LINE_4);
     }
 
-    namedWindow("red after", WINDOW_AUTOSIZE);
-    imshow("red after", redAfter);
-    namedWindow("green after", WINDOW_AUTOSIZE);
-    imshow("green after", greenAfter);
-    namedWindow("blue after", WINDOW_AUTOSIZE);
-    imshow("blue after", blueAfter);
-
     for (int i = 0; i < cImage.rows; i++) {
         for (int j = 0; j < cImage.cols; j++) {
             cHistogramEqualization.at<Vec3b>(i, j)[0] = cCumu[0][cImage.at<Vec3b>(i, j)[0]] * 256 / blue;
@@ -159,8 +141,6 @@ int main() {
             cHistogramEqualization.at<Vec3b>(i, j)[2] = cCumu[2][cImage.at<Vec3b>(i, j)[2]] * 256 / red;
         }
     }
-    namedWindow("color histogramEqualization", WINDOW_AUTOSIZE);
-    imshow("color histogramEqualization", cHistogramEqualization);
 
     // output 
     namedWindow("Original window", WINDOW_AUTOSIZE);
@@ -173,6 +153,22 @@ int main() {
     imshow("histogramEqualization", histogramEqualization);
     namedWindow("after", WINDOW_AUTOSIZE);
     imshow("after", after);
+    namedWindow("Original color window", WINDOW_AUTOSIZE);
+    imshow("Original color window", cImage);
+    namedWindow("red count", WINDOW_AUTOSIZE);
+    imshow("red count", redHis);
+    namedWindow("green count", WINDOW_AUTOSIZE);
+    imshow("green count", greenHis);
+    namedWindow("blue count", WINDOW_AUTOSIZE);
+    imshow("blue count", blueHis);
+    namedWindow("red after", WINDOW_AUTOSIZE);
+    imshow("red after", redAfter);
+    namedWindow("green after", WINDOW_AUTOSIZE);
+    imshow("green after", greenAfter);
+    namedWindow("blue after", WINDOW_AUTOSIZE);
+    imshow("blue after", blueAfter);
+    namedWindow("color histogramEqualization", WINDOW_AUTOSIZE);
+    imshow("color histogramEqualization", cHistogramEqualization);
 
     waitKey(0);
     destroyAllWindows();
