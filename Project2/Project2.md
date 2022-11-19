@@ -2,7 +2,8 @@
 
 ## Request
 
-利用OpenCV寫出幾個簡單的影像處理功能：
+### 利用OpenCV寫出幾個簡單的影像處理功能：
+
 * 讀取彩色照片(建議600*600以內)後，依序進行以下步驟：
 * 讀取原始照片，輸出”以最近鄰(nearest neighbor)內插”長寬放大3倍後的結果並存成檔案(輸出1)
 * 讀取原始照片，輸出”以線性(Linear)內插”長寬放大3倍後的結果並存成檔案(輸出2)
@@ -10,8 +11,16 @@
 * 對(輸出3)使用average filter並輸出結果(輸出4)
 * 在(輸出4) 右下角加上屬於自己的簽名(利用圖檔)(輸出5)
 
+### **不可**使用OpenCV內建之縮放、模糊等函數
+
+* 請全部使用Pixel-wise operation加減乘除去寫 ^_<
+* 禁止Rect、Range等用法
+* 嚴禁抄襲
+
 ## 影像內插 (Interpolation)
 
+### 最近鄰內插 (nearest neighbor)
+![](https://1.bp.blogspot.com/-Fkf3JtsLFJ4/WgLV4PrG8PI/AAAAAAAABz8/yEglVQ3S2qQRzx-q5AKjGDmVkzFLZqEBACLcBGAs/s640/Nearest1.png)
 ### 線性內插 (linear interpolation)：考慮最近4個點
 
 ![](https://i.imgur.com/qFL4x32.png)
@@ -32,7 +41,7 @@ $Y = 0.299R + 0.587G + 0.114B$
 
 =>  `Y = 0.3 * R + 0.6 * G + 0.1 * B`
 
-### Average Filter 
+## Average Filter 
 
 3 * 3 filter: 
 
