@@ -21,3 +21,9 @@
 [Histogram & Histogram Equalization - doc](https://github.com/w0110/Digital-Image-Processing/blob/master/Project3/Project3.md)
 
 [Histogram & Histogram Equalization - code](https://github.com/w0110/Digital-Image-Processing/blob/master/Project3/Project3/Source.cpp)
+
+## Project 4
+
+[CannyEdgeDetection/Hough Transform - doc](https://github.com/w0110/Digital-Image-Processing/blob/master/Project4/Project4.md)
+
+[CannyEdgeDetection/Hough Transform - code](https://github.com/w0110/Digital-Image-Processing/blob/master/Project4/Project4/Source.cpp)
