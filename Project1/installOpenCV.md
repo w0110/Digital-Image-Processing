@@ -38,3 +38,10 @@
     * opencv_world(版本)(debug/release).lib
     * opencv_world460d.lib表示4.60版，debug版本的lib
 ![](https://i.imgur.com/KErQbjp.png)
+
+### Runtime error: 少了dll檔??
+* 到`\opencv\build\x64\vc15\bin`裡
+* 複製`opencv_world460d.dll`
+* 到專案資料夾`\Project\x64\Debug`貼上
+
+![](https://i.imgur.com/xQHz7Kl.png)
